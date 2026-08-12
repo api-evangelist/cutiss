@@ -1,0 +1,33 @@
+generated: '2026-08-11'
+method: probed
+source: https://cutiss.swiss/wp-json/ route index + direct endpoint probes
+server: null
+status: none
+note: 'CUTISS operates no MCP server. The WordPress MCP Adapter is NOT installed: /wp-json/mcp and /wp-json/mcp/mcp-adapter-default-server
+  both return 404 rest_no_route, and no `mcp` namespace appears in the route index. No MCPServer pointer
+  is emitted in apis.yml, and no tool crosswalk is written because there are no tools to bind.'
+adjacent_surface:
+  name: WordPress Abilities API
+  namespace: wp-abilities/v1
+  registered: true
+  anonymously_readable: false
+  probes:
+  - url: https://cutiss.swiss/wp-json/wp-abilities/v1
+    status: 200
+    note: The namespace index itself is public and confirms the registry exists.
+  - url: https://cutiss.swiss/wp-json/wp-abilities/v1/abilities
+    status: 401
+    code: rest_forbidden
+  - url: https://cutiss.swiss/wp-json/wp-abilities/v1/categories
+    status: 401
+    code: rest_forbidden
+  detail: The Abilities API is the registry the WordPress MCP Adapter would expose as tools if it were
+    installed. It is present and registered on cutiss.swiss but authentication-gated, so the ability set
+    could not be enumerated anonymously. This is a latent agent surface, not a live one.
+mcp_probes:
+- url: https://cutiss.swiss/wp-json/mcp
+  status: 404
+  code: rest_no_route
+- url: https://cutiss.swiss/wp-json/mcp/mcp-adapter-default-server
+  status: 404
+  code: rest_no_route

@@ -1,0 +1,35 @@
+generated: '2026-08-11'
+method: derived
+source: https://cutiss.swiss/wp-json/ route index + openapi/
+versioning:
+  scheme: namespace-in-path (wp/v2)
+  current: wp/v2
+  detail: Version is set by WordPress core, not by CUTISS. CUTISS publishes no versioning policy of its
+    own.
+  other_namespaces:
+  - oembed/1.0
+  - pll/v1
+  - wp-abilities/v1
+  - wp-site-health/v1
+  - wp-block-editor/v1
+deprecation_policy:
+  published: false
+  detail: CUTISS publishes no deprecation policy and returns no Deprecation or Sunset header (RFC 8594).
+    No operation in the derived specs is marked deprecated. No Deprecation pointer is emitted.
+status_page:
+  published: false
+  detail: CUTISS operates no status page. No status.cutiss.swiss host and no third-party status provider
+    was found. No StatusPage pointer is emitted.
+sla:
+  published: false
+  detail: No SLA, uptime commitment or support tier is published — consistent with there being no commercial
+    API offering.
+changelog:
+  published: false
+  detail: CUTISS publishes no API changelog. The company newsroom (28 items) and blog (278 posts) are
+    corporate communications, not release notes, so no ChangeLog pointer is emitted.
+stability:
+  assessment: incidental
+  detail: This API exists as a side effect of running WordPress, not as a product commitment. Its shape
+    can change with any WordPress core or plugin update, and CUTISS has made no undertaking to keep it
+    stable. An integrator should treat every field as subject to change without notice.

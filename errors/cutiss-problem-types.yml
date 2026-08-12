@@ -1,0 +1,52 @@
+generated: '2026-08-11'
+method: probed
+source: live error responses from https://cutiss.swiss/wp-json/wp/v2 + openapi/
+format: wordpress-rest-error
+rfc9457: false
+envelope:
+  content_type: application/json; charset=UTF-8
+  fields:
+    code: machine-readable error code — the stable key to branch on
+    message: human-readable message, returned in German (site locale)
+    data.status: HTTP status code
+    data.params: per-parameter validation detail (400 only)
+    data.details: per-parameter nested error objects (400 only)
+note: Every entry below was observed on a live request; none is inferred from documentation. Messages
+  are localized to German — integrators must branch on `code`.
+problem_types:
+- code: rest_invalid_param
+  status: 400
+  title: Invalid parameter
+  observed_message: 'Ungültige(r) Parameter: per_page'
+  cause: A query parameter failed validation — wrong type, out of enum, or out of bounds.
+  remediation: Read data.details[<param>].code for the specific failure and correct the value.
+  observed_on: GET /posts?per_page=999
+- code: rest_out_of_bounds
+  status: 400
+  title: Parameter out of bounds
+  observed_message: per_page muss zwischen 1 (einschließlich) und 100 (einschließlich) liegen
+  cause: Nested detail code under rest_invalid_param. per_page must be 1–100.
+  remediation: Cap per_page at 100 and paginate with `page`, using X-WP-TotalPages to bound the loop.
+  observed_on: GET /posts?per_page=999
+- code: rest_forbidden
+  status: 401
+  title: Not authorized
+  observed_message: Du bist leider nicht berechtigt, diese Aktion durchzuführen.
+  cause: The collection or context requires an authenticated staff session.
+  remediation: Not resolvable by a third party — CUTISS issues no public credential. Restrict use to the
+    anonymous-readable collections.
+  observed_on: GET /users, GET /settings, GET /plugins, GET /menus, GET /block-types, GET /wp-abilities/v1/abilities
+- code: rest_post_invalid_id
+  status: 404
+  title: Invalid object id
+  observed_message: Die Beitrags-ID ist ungültig.
+  cause: No object exists at the requested numeric id, or it is not published.
+  remediation: Resolve ids from a collection listing or the search endpoint rather than guessing.
+  observed_on: GET /posts/99999999
+- code: rest_no_route
+  status: 404
+  title: No matching route
+  observed_message: Es wurde keine Route gefunden, die mit der URL und der Anfragemethode übereinstimmt.
+  cause: The path/method pair is not registered on this host.
+  remediation: Enumerate valid routes from the index at https://cutiss.swiss/wp-json/.
+  observed_on: GET /wp-json/mcp

@@ -1,0 +1,10 @@
+generated: '2026-08-11'
+method: searched
+source: https://cutiss.swiss/ (full site page inventory via /wp-json/wp/v2/pages)
+plan_count: 0
+plans: []
+note: CUTISS publishes no pricing of any kind — no API plans, no product price list, and no "contact sales"
+  pricing page. The complete 34-page site inventory was enumerated through the Pages API and contains
+  no pricing page. denovoSkin is an investigational therapy in clinical development, not a purchasable
+  product, and the content API is an incidental surface with no commercial offering attached. This is
+  a verified zero, not an unchecked field.

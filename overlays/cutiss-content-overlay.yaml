@@ -1,0 +1,48 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements to the CUTISS content API specs
+  version: 1.0.0
+x-generated: '2026-08-11'
+x-method: generated
+x-source: openapi/cutiss-*-api-openapi.yml
+x-note: Captures the enhancements API Evangelist applied when deriving the CUTISS OpenAPIs from the live
+  WordPress route index. CUTISS publishes no OpenAPI, so these actions describe our additions rather than
+  modifications to a provider document. Applied against any of the eight specs in openapi/.
+extends: openapi/cutiss-posts-api-openapi.yml
+actions:
+- target: $.info
+  description: State provenance and the read-only, incidental nature of the surface.
+  update:
+    x-provenance:
+      derived_by: API Evangelist
+      derived_from: https://cutiss.swiss/wp-json/
+      derived_on: '2026-08-11'
+      provider_publishes_spec: false
+- target: $.info
+  description: Record that CUTISS makes no stability commitment for this API.
+  update:
+    x-stability: incidental — shape follows WordPress core and plugin updates; no provider undertaking
+- target: $.paths.*.get.responses.200
+  description: Document the pagination count headers WordPress returns but no spec declares.
+  update:
+    x-pagination-headers:
+    - X-WP-Total
+    - X-WP-TotalPages
+    - Link
+- target: $.components.schemas.Error
+  description: Flag that error messages are German-localized so consumers branch on code.
+  update:
+    x-localized-messages: de_DE
+    x-branch-on: code
+- target: $.paths.*.get
+  description: Attach the agentic-access classification for every read operation.
+  update:
+    x-agentic-access:
+      action_class: read
+      consequence: none
+      token: none
+      escalation: not-required
+- target: $.servers
+  description: Note the anonymous read / 401 write boundary on the server.
+  update:
+  - x-access: anonymous read only; all write methods and administrative collections return 401 rest_forbidden

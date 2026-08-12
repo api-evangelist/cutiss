@@ -1,0 +1,95 @@
+generated: '2026-08-11'
+method: probed
+source: live responses from https://cutiss.swiss/wp-json/wp/v2 + the route index
+summary: Cross-cutting runtime semantics of the CUTISS WordPress REST content API, observed live.
+auth_style:
+  style: none for public reads
+  detail: See authentication/cutiss-authentication.yml. Writes require a staff session; there is no public
+    credential.
+pagination:
+  style: page-number with offset alternative
+  params:
+  - name: page
+    default: 1
+    description: Current page of the collection.
+  - name: per_page
+    default: 10
+    max: 100
+    description: Items per page. Values above 100 are refused with 400 rest_invalid_param / rest_out_of_bounds.
+  - name: offset
+    description: Offset the result set by a specific number of items.
+  response_headers:
+  - name: X-WP-Total
+    description: 'Total objects in the collection. Observed: 278 on /posts.'
+  - name: X-WP-TotalPages
+    description: 'Total pages at the requested per_page. Observed: 139 on /posts?per_page=2.'
+  link_header: RFC 5988 Link header with rel="next" / rel="prev" is returned alongside the count headers.
+  cors: Access-Control-Expose-Headers exposes X-WP-Total, X-WP-TotalPages and Link to browser clients.
+sorting:
+  params:
+  - order (asc|desc, default desc)
+  - orderby (date|id|title|slug|modified|relevance|include|author|parent)
+filtering:
+  params:
+  - search
+  - search_columns
+  - search_semantics
+  - slug
+  - include
+  - exclude
+  - after
+  - before
+  - modified_after
+  - modified_before
+  - categories
+  - tags
+  - status
+field_selection:
+  supported: true
+  detail: The _fields query parameter returns a sparse representation; _embed inlines linked resources
+    referenced from the _links envelope.
+response_envelope:
+  style: bare object or bare array — no wrapper
+  hateoas: Each object carries a _links object (self, collection, about, author, replies, wp:attachment,
+    curies) implementing HAL-style link relations.
+error_envelope:
+  format: WordPress REST error object — NOT RFC 9457 problem+json
+  content_type: application/json; charset=UTF-8
+  shape:
+    code: machine-readable string
+    message: human-readable string
+    data:
+      status: integer HTTP status
+      params: optional per-parameter detail
+  localization: Messages are returned in German, the site's configured locale, even for English-language
+    requests. An integrator must key on `code`, never on `message`.
+  reference: errors/cutiss-problem-types.yml
+idempotency:
+  supported: false
+  detail: 'No Idempotency-Key header is accepted or advertised. The public surface is read-only (Allow:
+    GET on collection responses), so there is no unsafe operation to make idempotent. GET is idempotent
+    by HTTP semantics only. No Idempotency pointer is emitted in apis.yml.'
+rate_limiting:
+  signaled: false
+  detail: No X-RateLimit-*, RateLimit-* or Retry-After header was observed on any response. See rate-limits/cutiss-rate-limits.yml.
+request_id_tracing:
+  supported: false
+  detail: No request-id or correlation header is returned.
+versioning:
+  scheme: namespace-in-path
+  detail: The version is carried in the route namespace (wp/v2). Other namespaces present on the host
+    include oembed/1.0, pll/v1 and wp-abilities/v1.
+  reference: lifecycle/cutiss-lifecycle.yml
+caching:
+  detail: 'Vary: Accept-Encoding, Cookie. WP Super Cache is installed (wp-super-cache/v1 namespace). No
+    ETag or Cache-Control on API responses was observed.'
+content_negotiation:
+  formats:
+  - application/json
+  detail: JSON only. The oembed/1.0 namespace additionally serves XML for oEmbed.
+internationalization:
+  detail: The site is bilingual (English / German) via Polylang; the pll/v1/languages route is public
+    and enumerates both locales with home_url and search_url per language. Content objects exist in parallel
+    EN and DE trees, so a consumer must filter by language or accept duplicates.
+robots:
+  detail: 'API responses carry X-Robots-Tag: noindex. X-Content-Type-Options: nosniff is set.'

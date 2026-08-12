@@ -1,0 +1,55 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/ + live response headers and error bodies
+note: Assertions about cross-cutting standards on the CUTISS content API. CUTISS publishes no compliance
+  program, no certifications and no trust center, so no Compliance or TrustCenter pointer is emitted in
+  apis.yml.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: Eight OpenAPI 3.1.0 documents in openapi/, derived from the live route index. Authored by
+    API Evangelist, not published by CUTISS.
+- id: rest
+  conforms: true
+  evidence: Resource-oriented URLs, correct GET semantics, HTTP status codes used conventionally.
+- id: hateoas
+  conforms: true
+  evidence: Every object carries a _links envelope with self/collection/about relations and curies.
+- id: rfc5988-web-linking
+  conforms: true
+  evidence: Link header with rel="next" observed on /wp/v2/posts?per_page=2.
+- id: pagination
+  conforms: true
+  evidence: page/per_page/offset params plus X-WP-Total and X-WP-TotalPages response headers.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the WordPress {code,message,data} envelope with content-type application/json,
+    not application/problem+json.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key support; public surface is read-only.
+- id: oauth2
+  conforms: false
+  evidence: '/.well-known/oauth-authorization-server returned 404; route index advertises authentication:
+    [].'
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404.
+- id: cors
+  conforms: true
+  evidence: Access-Control-Expose-Headers and Access-Control-Allow-Headers present on API responses.
+- id: oembed
+  conforms: true
+  evidence: oembed/1.0 namespace registered and served on the host.
+regulatory_context:
+  note: CUTISS operates in a regulated therapeutics domain — denovoSkin holds Orphan Drug Designation
+    from Swissmedic, EMA and FDA — but those are product designations governing a clinical therapy, not
+    API or data-interchange conformance. They are recorded here as context and are deliberately NOT asserted
+    as API standards conformance.
+  designations:
+  - Swissmedic Orphan Drug Designation (burns)
+  - EMA Orphan Drug Designation
+  - FDA Orphan Drug Designation

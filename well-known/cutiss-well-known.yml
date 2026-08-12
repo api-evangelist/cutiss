@@ -1,0 +1,38 @@
+generated: '2026-08-11'
+method: probed
+source: https://cutiss.swiss/.well-known/*
+host: cutiss.swiss
+result: none
+note: Every /.well-known/ path probed on cutiss.swiss returned HTTP 404 — the host serves no security.txt,
+  no OpenID/OAuth discovery document, no api-catalog, no ai-plugin and no A2A agent card. This file records
+  a verified ABSENCE; no WellKnown, SecurityTxt or AgentCard pointer is emitted in apis.yml, because none
+  of those surfaces exists to point at.
+probes:
+- path: /.well-known/security.txt
+  url: https://cutiss.swiss/.well-known/security.txt
+  status: 404
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://cutiss.swiss/.well-known/openid-configuration
+  status: 404
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://cutiss.swiss/.well-known/oauth-authorization-server
+  status: 404
+  file: null
+- path: /.well-known/api-catalog
+  url: https://cutiss.swiss/.well-known/api-catalog
+  status: 404
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://cutiss.swiss/.well-known/ai-plugin.json
+  status: 404
+  file: null
+- path: /.well-known/agent-card.json
+  url: https://cutiss.swiss/.well-known/agent-card.json
+  status: 404
+  file: null
+- path: /.well-known/agent.json
+  url: https://cutiss.swiss/.well-known/agent.json
+  status: 404
+  file: null

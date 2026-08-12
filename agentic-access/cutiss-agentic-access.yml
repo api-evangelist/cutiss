@@ -1,0 +1,149 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/ + conventions/cutiss-conventions.yml
+summary: Recommended x-agentic-access posture for the CUTISS content API. Every publicly reachable operation
+  is a safe, read-only retrieval of already-public corporate content, so the whole surface classifies
+  as low-consequence.
+defaults:
+  action_class: read
+  consequence: none
+  token: none
+  escalation: not-required
+  reversible: true
+operations:
+- operationId: listNewsroom
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getNewsroomItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listPosts
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getPostsItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listPages
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getPagesItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listTeam
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getTeamItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listTeams
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getTeamsItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listMedia
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getMediaItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listCategories
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: getCategoriesItem
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+- operationId: listSearch
+  action_class: read
+  consequence: none
+  scope: public-content
+  token: none
+  escalation: not-required
+  note: Anonymous GET of published corporate content. No state change, no personal data beyond publicly
+    listed staff profiles.
+denied:
+- surface: all write methods (POST/PUT/PATCH/DELETE)
+  reason: 401 rest_forbidden for anonymous callers — an agent cannot and must not attempt them.
+- surface: /wp/v2/users, /wp/v2/settings, /wp/v2/plugins, /wp/v2/menus
+  reason: Administrative, 401-gated.
+- surface: /wp-abilities/v1/*
+  reason: Agent ability registry, 401-gated.
+agent_guidance:
+- Treat this as a corporate content source, not a product API — there is no transactional capability here.
+- Cap per_page at 100 and page with X-WP-TotalPages; self-throttle, since no rate limit is published.
+- 'Filter by language: parallel English and German records exist with distinct ids and will otherwise
+  duplicate.'
+- Branch on the error `code` field — messages are returned in German regardless of request locale.
+- The team directory contains named individuals; treat it as personal data even though it is publicly
+  published.
+- This API carries no CUTISS stability commitment; re-validate the shape rather than caching assumptions.

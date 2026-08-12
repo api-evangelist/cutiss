@@ -1,0 +1,16 @@
+generated: '2026-08-11'
+method: probed
+source: live response headers from https://cutiss.swiss/wp-json/wp/v2
+limit_count: 0
+limits: []
+response_headers: []
+note: No rate limiting is documented or signaled. Live responses carry no X-RateLimit-*, no RateLimit-*
+  and no Retry-After header, and no 429 was observed. CUTISS publishes no API documentation in which limits
+  could be stated. Wordfence (wordfence/v1 namespace) is installed and may apply undisclosed edge throttling,
+  so the absence of a published limit is not a guarantee of unlimited access — a consumer should self-throttle.
+observed_constraints:
+- constraint: per_page maximum
+  value: 100
+  enforced_by: 400 rest_invalid_param / rest_out_of_bounds
+  note: A pagination bound rather than a rate limit, but it is the only server-enforced request constraint
+    observed.

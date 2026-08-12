@@ -1,0 +1,129 @@
+generated: '2026-08-11'
+method: probed
+source: live anonymous GET requests against https://cutiss.swiss/wp-json/wp/v2
+note: Real response excerpts captured from the live CUTISS WordPress REST API on 2026-08-11. Bodies are
+  trimmed to identifying and structural fields; no values were invented or altered. Rendered HTML content
+  bodies are omitted for size.
+examples:
+- operationId: listNewsroom
+  request: https://cutiss.swiss/wp-json/wp/v2/newsroom2021?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 20007
+    date: '2025-07-15T12:00:00'
+    slug: zugaenglichkeit-fortschrittlicher-therapien-warum-skalierbarkeit-der-schwierige-teil-ist
+    status: publish
+    type: newsroom2021
+    link: https://cutiss.swiss/de/newsroom2021/zugaenglichkeit-fortschrittlicher-therapien-warum-skalierbarkeit-der-schwierige-teil-ist/
+    title:
+      rendered: 'Zugänglichkeit fortschrittlicher Therapien: Warum Skalierbarkeit der schwierige Teil
+        ist'
+- operationId: listPosts
+  request: https://cutiss.swiss/wp-json/wp/v2/posts?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 20980
+    date: '2026-06-23T08:00:00'
+    slug: dr-achim-von-leoprechting-zum-verwaltungsratspraesidenten-von-cutiss-gewaehlt
+    status: publish
+    type: post
+    link: https://cutiss.swiss/de/dr-achim-von-leoprechting-zum-verwaltungsratspraesidenten-von-cutiss-gewaehlt/
+    title:
+      rendered: Dr. Achim von Leoprechting zum Verwaltungsratspräsidenten von CUTISS gewählt
+    categories:
+    - 102
+- operationId: listPages
+  request: https://cutiss.swiss/wp-json/wp/v2/pages?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 16633
+    date: '2026-05-26T20:00:00'
+    slug: ueber-uns
+    status: publish
+    type: page
+    link: https://cutiss.swiss/de/ueber-uns/
+    title:
+      rendered: Über uns
+    parent: 0
+- operationId: listTeam
+  request: https://cutiss.swiss/wp-json/wp/v2/team_member?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 21053
+    date: '2026-08-10T13:53:42'
+    slug: iris-gallego-busquet-2
+    status: publish
+    type: team_member
+    link: https://cutiss.swiss/de/team_member/iris-gallego-busquet-2/
+    title:
+      rendered: Iris Gallego Busquet
+- operationId: listTeams
+  request: https://cutiss.swiss/wp-json/wp/v2/cutiss-teams?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 364
+    count: 2
+    name: Betrieb
+    slug: betrieb
+    taxonomy: cutiss-teams
+    link: https://cutiss.swiss/de/cutiss-teams/betrieb/
+- operationId: listMedia
+  request: https://cutiss.swiss/wp-json/wp/v2/media?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 21052
+    date: '2026-08-10T13:51:59'
+    slug: iris-gallego-busquet
+    type: attachment
+    link: https://cutiss.swiss/team_member/iris-gallego-busquet/iris-gallego-busquet/
+    title:
+      rendered: Iris Gallego Busquet
+    media_type: image
+    mime_type: image/jpeg
+    source_url: https://cutiss.swiss/wp-content/uploads/2026/08/Iris-Gallego-Busquet-scaled-e1786362769550.jpg
+- operationId: listCategories
+  request: https://cutiss.swiss/wp-json/wp/v2/categories?per_page=1
+  http_status: 200
+  response_excerpt:
+    id: 1
+    count: 0
+    name: Allgemein
+    slug: allgemein
+    taxonomy: category
+    link: https://cutiss.swiss/category/allgemein/
+- operationId: listSearch
+  request: https://cutiss.swiss/wp-json/wp/v2/search?per_page=1&search=skin
+  http_status: 200
+  response_excerpt:
+    id: 20849
+    title: CUTISS granted U.S. patent for automated skin graft production methods
+    url: https://cutiss.swiss/cutiss-granted-u-s-patent-for-automated-skin-graft-production-methods/
+    type: post
+    subtype: post
+error_examples:
+- operationId: listPosts
+  request: https://cutiss.swiss/wp-json/wp/v2/posts?per_page=999
+  http_status: 400
+  response:
+    code: rest_invalid_param
+    message: 'Ungültige(r) Parameter: per_page'
+    data:
+      status: 400
+      params:
+        per_page: per_page muss zwischen 1 (einschließlich) und 100 (einschließlich) liegen
+- operationId: getPostsItem
+  request: https://cutiss.swiss/wp-json/wp/v2/posts/99999999
+  http_status: 404
+  response:
+    code: rest_post_invalid_id
+    message: Die Beitrags-ID ist ungültig.
+    data:
+      status: 404
+- operationId: listUsers
+  request: https://cutiss.swiss/wp-json/wp/v2/users
+  http_status: 401
+  response:
+    code: rest_forbidden
+    message: Du bist leider nicht berechtigt, diese Aktion durchzuführen.
+    data:
+      status: 401

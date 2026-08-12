@@ -1,0 +1,627 @@
+openapi: 3.1.0
+info:
+  title: CUTISS Pages API
+  description: 'Read CUTISS website pages (About us, Technology, Clinical Development, Investors, Media,
+    Career, Contact and their German equivalents) as JSON. 34 pages published at probe time.
+
+
+    This is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer
+    API; this content surface is the only machine-readable API on the company''s public host. It is read-only
+    without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`.
+    Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample
+    responses on 2026-08-11.'
+  version: 1.0.0
+  contact:
+    name: CUTISS AG
+    email: info@cutiss.swiss
+    url: https://cutiss.swiss/contact/
+  license:
+    name: Proprietary — content © CUTISS AG
+    url: https://cutiss.swiss/impressum-en/
+servers:
+- url: https://cutiss.swiss/wp-json/wp/v2
+  description: CUTISS WordPress REST API (wp/v2 namespace)
+tags:
+- name: Pages
+  description: Read CUTISS website pages (About us, Technology, Clinical Development, Investors, Media,
+    Career, Contact and their German equivalents) as JSON. 34 pages published at probe time.
+paths:
+  /pages:
+    get:
+      operationId: listPages
+      summary: List pages objects
+      description: Returns a paginated collection of pages objects from cutiss.swiss. Pagination totals
+        are returned in the X-WP-Total and X-WP-TotalPages response headers.
+      tags:
+      - Pages
+      parameters:
+      - name: after
+        in: query
+        description: Limit response to posts published after a given ISO8601 compliant date.
+        schema:
+          type: string
+      - name: author
+        in: query
+        description: Limit result set to posts assigned to specific authors.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: author_exclude
+        in: query
+        description: Ensure result set excludes posts assigned to specific authors.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: before
+        in: query
+        description: Limit response to posts published before a given ISO8601 compliant date.
+        schema:
+          type: string
+      - name: context
+        in: query
+        description: Scope under which the request is made; determines fields present in response.
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+      - name: exclude
+        in: query
+        description: Ensure result set excludes specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: include
+        in: query
+        description: Limit result set to specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: menu_order
+        in: query
+        description: Limit result set to posts with a specific menu_order value.
+        schema:
+          type: integer
+      - name: modified_after
+        in: query
+        description: Limit response to posts modified after a given ISO8601 compliant date.
+        schema:
+          type: string
+      - name: modified_before
+        in: query
+        description: Limit response to posts modified before a given ISO8601 compliant date.
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: Offset the result set by a specific number of items.
+        schema:
+          type: integer
+      - name: order
+        in: query
+        description: Order sort attribute ascending or descending.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      - name: orderby
+        in: query
+        description: Sort collection by post attribute.
+        schema:
+          type: string
+          enum:
+          - author
+          - date
+          - id
+          - include
+          - modified
+          - parent
+          - relevance
+          - slug
+          - include_slugs
+          - title
+          - menu_order
+          default: date
+      - name: page
+        in: query
+        description: Current page of the collection.
+        schema:
+          type: integer
+          default: 1
+      - name: parent
+        in: query
+        description: Limit result set to items with particular parent IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: parent_exclude
+        in: query
+        description: Limit result set to all items except those of a particular parent ID.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: per_page
+        in: query
+        description: Maximum number of items to be returned in result set.
+        schema:
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Limit results to those matching a string.
+        schema:
+          type: string
+      - name: search_columns
+        in: query
+        description: Array of column names to be searched.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - post_title
+            - post_content
+            - post_excerpt
+      - name: search_semantics
+        in: query
+        description: How to interpret the search input.
+        schema:
+          type: string
+          enum:
+          - exact
+      - name: slug
+        in: query
+        description: Limit result set to posts with one or more specific slugs.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: status
+        in: query
+        description: Limit result set to posts assigned one or more statuses.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - publish
+            - future
+            - draft
+            - pending
+            - private
+            - trash
+            - auto-draft
+            - inherit
+            - request-pending
+            - request-confirmed
+            - request-failed
+            - request-completed
+            - acf-disabled
+            - dp-rewrite-republish
+            - email_sent
+            - email_failed
+            - email_scheduled
+            - any
+          default: publish
+      responses:
+        '200':
+          description: Successful response.
+          headers:
+            X-WP-Total:
+              description: Total number of objects in the collection.
+              schema:
+                type: integer
+            X-WP-TotalPages:
+              description: Total number of pages available at the requested per_page size.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Page'
+        '400':
+          description: Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires
+            authentication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /pages/{id}:
+    get:
+      operationId: getPagesItem
+      summary: Retrieve a single pages object by id
+      description: Returns one pages object from cutiss.swiss by its numeric WordPress id.
+      tags:
+      - Pages
+      parameters:
+      - name: id
+        in: path
+        description: Unique identifier for the post.
+        schema:
+          type: integer
+        required: true
+      - name: context
+        in: query
+        description: Scope under which the request is made; determines fields present in response.
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+      - name: excerpt_length
+        in: query
+        description: Override the default excerpt length.
+        schema:
+          type: integer
+      - name: password
+        in: query
+        description: The password for the post if it is password protected.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '400':
+          description: Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires
+            authentication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Page:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+        date_gmt:
+          type: string
+        guid:
+          type: object
+          properties:
+            rendered:
+              type: string
+        modified:
+          type: string
+        modified_gmt:
+          type: string
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        link:
+          type: string
+        title:
+          type: object
+          properties:
+            rendered:
+              type: string
+        content:
+          type: object
+          properties:
+            rendered:
+              type: string
+            protected:
+              type: boolean
+        excerpt:
+          type: object
+          properties:
+            rendered:
+              type: string
+            protected:
+              type: boolean
+        author:
+          type: integer
+        featured_media:
+          type: integer
+        parent:
+          type: integer
+        menu_order:
+          type: integer
+        comment_status:
+          type: string
+        ping_status:
+          type: string
+        template:
+          type: string
+        meta:
+          type: object
+          properties:
+            site-sidebar-layout:
+              type: string
+            site-content-layout:
+              type: string
+            ast-site-content-layout:
+              type: string
+            site-content-style:
+              type: string
+            site-sidebar-style:
+              type: string
+            ast-global-header-display:
+              type: string
+            ast-banner-title-visibility:
+              type: string
+            ast-main-header-display:
+              type: string
+            ast-hfb-above-header-display:
+              type: string
+            ast-hfb-below-header-display:
+              type: string
+            ast-hfb-mobile-header-display:
+              type: string
+            site-post-title:
+              type: string
+            ast-breadcrumbs-content:
+              type: string
+            ast-featured-img:
+              type: string
+            footer-sml-layout:
+              type: string
+            ast-disable-related-posts:
+              type: string
+            theme-transparent-header-meta:
+              type: string
+            adv-header-id-meta:
+              type: string
+            stick-header-meta:
+              type: string
+            header-above-stick-meta:
+              type: string
+            header-main-stick-meta:
+              type: string
+            header-below-stick-meta:
+              type: string
+            astra-migrate-meta-layouts:
+              type: string
+            ast-page-background-enabled:
+              type: string
+            ast-page-background-meta:
+              type: object
+              properties:
+                desktop:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+                tablet:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+                mobile:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+            ast-content-background-meta:
+              type: object
+              properties:
+                desktop:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+                tablet:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+                mobile:
+                  type: object
+                  properties:
+                    background-color:
+                      type: string
+                    background-image:
+                      type: string
+                    background-repeat:
+                      type: string
+                    background-position:
+                      type: string
+                    background-size:
+                      type: string
+                    background-attachment:
+                      type: string
+                    background-type:
+                      type: string
+                    background-media:
+                      type: string
+                    overlay-type:
+                      type: string
+                    overlay-color:
+                      type: string
+                    overlay-opacity:
+                      type: string
+                    overlay-gradient:
+                      type: string
+            footnotes:
+              type: string
+        class_list:
+          type: array
+          items: {}
+        acf:
+          type: array
+          items: {}
+    Error:
+      type: object
+      description: The WordPress REST API error envelope returned on every 4xx/5xx response.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code, e.g. rest_forbidden.
+        message:
+          type: string
+          description: Human-readable message. Localized — cutiss.swiss returns German text.
+        data:
+          type: object
+          description: Error detail.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.
+      required:
+      - code
+      - message
+x-evidence:
+  fetched: '2026-08-11'
+  route_index: https://cutiss.swiss/wp-json/
+  sample_request: https://cutiss.swiss/wp-json/wp/v2/pages?per_page=1
+  verified_total: 34
+  note: Parameters derived verbatim from the live route index args; schema properties derived from a live
+    sample response. No properties were invented.

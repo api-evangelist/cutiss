@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: CUTISS Search API
+  description: 'Full-text search across every publicly readable CUTISS object — posts, pages, newsroom
+    items and team profiles — returning id, title, url, type and subtype. 514 searchable objects at probe
+    time.
+
+
+    This is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer
+    API; this content surface is the only machine-readable API on the company''s public host. It is read-only
+    without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`.
+    Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample
+    responses on 2026-08-11.'
+  version: 1.0.0
+  contact:
+    name: CUTISS AG
+    email: info@cutiss.swiss
+    url: https://cutiss.swiss/contact/
+  license:
+    name: Proprietary — content © CUTISS AG
+    url: https://cutiss.swiss/impressum-en/
+servers:
+- url: https://cutiss.swiss/wp-json/wp/v2
+  description: CUTISS WordPress REST API (wp/v2 namespace)
+tags:
+- name: Search
+  description: Full-text search across every publicly readable CUTISS object — posts, pages, newsroom
+    items and team profiles — returning id, title, url, type and subtype. 514 searchable objects at probe
+    time.
+paths:
+  /search:
+    get:
+      operationId: listSearch
+      summary: List search objects
+      description: Returns a paginated collection of search objects from cutiss.swiss. Pagination totals
+        are returned in the X-WP-Total and X-WP-TotalPages response headers.
+      tags:
+      - Search
+      parameters:
+      - name: context
+        in: query
+        description: Scope under which the request is made; determines fields present in response.
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          default: view
+      - name: exclude
+        in: query
+        description: Ensure result set excludes specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: include
+        in: query
+        description: Limit result set to specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: page
+        in: query
+        description: Current page of the collection.
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Maximum number of items to be returned in result set.
+        schema:
+          type: integer
+          default: 10
+      - name: search
+        in: query
+        description: Limit results to those matching a string.
+        schema:
+          type: string
+      - name: subtype
+        in: query
+        description: Limit results to items of one or more object subtypes.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - post
+            - page
+            - elementor_library
+            - newsroom2021
+            - team_member
+            - astra-advanced-hook
+            - category
+            - post_tag
+            - cutiss-teams
+            - any
+          default: any
+      - name: type
+        in: query
+        description: Limit results to items of an object type.
+        schema:
+          type: string
+          enum:
+          - post
+          - term
+          - post-format
+          default: post
+      responses:
+        '200':
+          description: Successful response.
+          headers:
+            X-WP-Total:
+              description: Total number of objects in the collection.
+              schema:
+                type: integer
+            X-WP-TotalPages:
+              description: Total number of pages available at the requested per_page size.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchResult'
+        '400':
+          description: Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires
+            authentication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+        type:
+          type: string
+        subtype:
+          type: string
+    Error:
+      type: object
+      description: The WordPress REST API error envelope returned on every 4xx/5xx response.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code, e.g. rest_forbidden.
+        message:
+          type: string
+          description: Human-readable message. Localized — cutiss.swiss returns German text.
+        data:
+          type: object
+          description: Error detail.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.
+      required:
+      - code
+      - message
+x-evidence:
+  fetched: '2026-08-11'
+  route_index: https://cutiss.swiss/wp-json/
+  sample_request: https://cutiss.swiss/wp-json/wp/v2/search?per_page=1&search=skin
+  verified_total: 514
+  note: Parameters derived verbatim from the live route index args; schema properties derived from a live
+    sample response. No properties were invented.

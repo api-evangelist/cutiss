@@ -1,0 +1,177 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/ + live sample responses
+note: Entity graph derived from the id-reference fields and _links relations present in real responses.
+id_scheme:
+  style: integer surrogate keys
+  detail: Every object is keyed by a site-scoped integer WordPress id. There are no prefixed or globally
+    unique ids; ids collide across types and are only meaningful with the type.
+entities:
+- name: Post
+  collection: /posts
+  count_at_probe: 278
+  key_fields:
+  - id
+  - date
+  - modified
+  - slug
+  - status
+  - link
+  - title
+  - excerpt
+  - content
+  - categories
+  - tags
+  - featured_media
+  - author
+- name: Page
+  collection: /pages
+  count_at_probe: 34
+  key_fields:
+  - id
+  - date
+  - slug
+  - status
+  - link
+  - title
+  - content
+  - parent
+  - menu_order
+  - featured_media
+  - author
+- name: NewsroomItem
+  collection: /newsroom2021
+  count_at_probe: 28
+  key_fields:
+  - id
+  - date
+  - slug
+  - status
+  - link
+  - title
+  - content
+  - featured_media
+- name: TeamMember
+  collection: /team_member
+  count_at_probe: 128
+  key_fields:
+  - id
+  - date
+  - slug
+  - status
+  - link
+  - title
+  - content
+  - featured_media
+  - cutiss-teams
+- name: TeamTerm
+  collection: /cutiss-teams
+  count_at_probe: 18
+  key_fields:
+  - id
+  - count
+  - name
+  - slug
+  - taxonomy
+  - link
+  - parent
+- name: Category
+  collection: /categories
+  count_at_probe: 13
+  key_fields:
+  - id
+  - count
+  - name
+  - slug
+  - taxonomy
+  - link
+  - parent
+- name: MediaItem
+  collection: /media
+  count_at_probe: 842
+  key_fields:
+  - id
+  - date
+  - slug
+  - link
+  - title
+  - media_type
+  - mime_type
+  - source_url
+  - media_details
+  - post
+  - alt_text
+- name: SearchResult
+  collection: /search
+  count_at_probe: 514
+  key_fields:
+  - id
+  - title
+  - url
+  - type
+  - subtype
+  note: A projection, not a stored entity — `subtype` names the underlying entity and `id` resolves against
+    that collection.
+- name: User
+  collection: /users
+  count_at_probe: null
+  note: Referenced by Post.author and Page.author but NOT publicly readable — /wp/v2/users returns 401
+    rest_forbidden. Author ids therefore cannot be resolved anonymously.
+relationships:
+- from: Post
+  to: Category
+  type: has_many
+  via: categories[] (array of Category ids)
+- from: Post
+  to: MediaItem
+  type: has_one
+  via: featured_media (MediaItem id, 0 when unset)
+- from: Post
+  to: User
+  type: belongs_to
+  via: author (User id)
+  resolvable: false
+  note: Target collection is 401-gated.
+- from: Page
+  to: Page
+  type: belongs_to
+  via: parent (Page id, 0 at root)
+- from: Page
+  to: MediaItem
+  type: has_one
+  via: featured_media
+- from: NewsroomItem
+  to: MediaItem
+  type: has_one
+  via: featured_media
+- from: TeamMember
+  to: TeamTerm
+  type: has_many
+  via: cutiss-teams[] (array of TeamTerm ids)
+- from: TeamMember
+  to: MediaItem
+  type: has_one
+  via: featured_media (the profile portrait)
+- from: TeamTerm
+  to: TeamTerm
+  type: belongs_to
+  via: parent
+- from: Category
+  to: Category
+  type: belongs_to
+  via: parent
+- from: MediaItem
+  to: Post
+  type: belongs_to
+  via: post (id of the object the file is attached to)
+- from: SearchResult
+  to: Post|Page|NewsroomItem|TeamMember
+  type: has_one
+  via: id + subtype
+traversal:
+  detail: Adding _embed to any request inlines featured_media, author and term relations from the _links
+    envelope, collapsing the joins above into one call.
+language_axis:
+  detail: Polylang keeps parallel English and German objects as SEPARATE records with distinct ids. There
+    is no language field in the default wp/v2 representation, so counts above include both trees and a
+    naive consumer will see each item twice.
