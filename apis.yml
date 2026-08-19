@@ -20,7 +20,7 @@ x-source: harvest:secondary-market
 x-tier: profiled
 x-tier-reason: enrichment-pipeline
 image: https://cutiss.swiss/wp-content/uploads/2019/08/Cutiss-Logo.png
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-11'
 modified: '2026-08-11'
 tags:
