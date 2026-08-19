@@ -1,0 +1,1153 @@
+{
+  "item": [
+    {
+      "id": "e15a4d84-c344-4e66-acc3-521a1f8f0840",
+      "name": "Media",
+      "description": {
+        "content": "Read the CUTISS media library — images, documents and press assets attached to pages, posts and newsroom items — as JSON with their rendered source URLs and size variants. 842 items published at probe time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd5e4ef7-7f71-416e-b94c-53e5156f2737",
+          "name": "List media objects",
+          "request": {
+            "name": "List media objects",
+            "description": {
+              "content": "Returns a paginated collection of media objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "Limit response to posts published after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "author",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "author",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "author_exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "author_exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "Limit response to posts published before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "media_type",
+                  "value": "",
+                  "description": "Limit result set to attachments of a particular media type or media types."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "",
+                  "description": "Limit result set to attachments of a particular MIME type or MIME types."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_after",
+                  "value": "<string>",
+                  "description": "Limit response to posts modified after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_before",
+                  "value": "<string>",
+                  "description": "Limit response to posts modified before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset the result set by a specific number of items."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Order sort attribute ascending or descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date",
+                  "description": "Sort collection by post attribute."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "<integer>",
+                  "description": "Limit result set to items with particular parent IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "<integer>",
+                  "description": "Limit result set to items with particular parent IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_exclude",
+                  "value": "<integer>",
+                  "description": "Limit result set to all items except those of a particular parent ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_exclude",
+                  "value": "<integer>",
+                  "description": "Limit result set to all items except those of a particular parent ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_columns",
+                  "value": "<string>",
+                  "description": "Array of column names to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_columns",
+                  "value": "<string>",
+                  "description": "Array of column names to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_semantics",
+                  "value": "<string>",
+                  "description": "How to interpret the search input."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "inherit",
+                  "description": "Limit result set to posts assigned one or more statuses."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8b49cbc-21cd-49a5-bc80-2c8a26d34a95",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of objects in the collection.",
+                  "key": "X-WP-Total",
+                  "value": "9450"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the requested per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "9450"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1172,\n    \"date\": \"string\",\n    \"date_gmt\": \"string\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"string\",\n    \"modified_gmt\": \"string\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"string\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 1645,\n    \"featured_media\": 9744,\n    \"comment_status\": \"string\",\n    \"ping_status\": \"string\",\n    \"template\": \"string\",\n    \"meta\": {\n      \"site-sidebar-layout\": \"string\",\n      \"site-content-layout\": \"string\",\n      \"ast-site-content-layout\": \"string\",\n      \"site-content-style\": \"string\",\n      \"site-sidebar-style\": \"string\",\n      \"ast-global-header-display\": \"string\",\n      \"ast-banner-title-visibility\": \"string\",\n      \"ast-main-header-display\": \"string\",\n      \"ast-hfb-above-header-display\": \"string\",\n      \"ast-hfb-below-header-display\": \"string\",\n      \"ast-hfb-mobile-header-display\": \"string\",\n      \"site-post-title\": \"string\",\n      \"ast-breadcrumbs-content\": \"string\",\n      \"ast-featured-img\": \"string\",\n      \"footer-sml-layout\": \"string\",\n      \"ast-disable-related-posts\": \"string\",\n      \"theme-transparent-header-meta\": \"string\",\n      \"adv-header-id-meta\": \"string\",\n      \"stick-header-meta\": \"string\",\n      \"header-above-stick-meta\": \"string\",\n      \"header-main-stick-meta\": \"string\",\n      \"header-below-stick-meta\": \"string\",\n      \"astra-migrate-meta-layouts\": \"string\",\n      \"ast-page-background-enabled\": \"string\",\n      \"ast-page-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      },\n      \"ast-content-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      }\n    },\n    \"description\": {\n      \"rendered\": \"string\"\n    },\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"string\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"width\": 7262,\n      \"height\": 9405,\n      \"file\": \"string\",\n      \"filesize\": 9456,\n      \"sizes\": {\n        \"medium\": {\n          \"file\": \"string\",\n          \"width\": 1778,\n          \"height\": 2280,\n          \"filesize\": 7828,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"large\": {\n          \"file\": \"string\",\n          \"width\": 6329,\n          \"height\": 1808,\n          \"filesize\": 1969,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"thumbnail\": {\n          \"file\": \"string\",\n          \"width\": 7480,\n          \"height\": 4924,\n          \"filesize\": 7389,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"medium_large\": {\n          \"file\": \"string\",\n          \"width\": 6825,\n          \"height\": 4526,\n          \"filesize\": 8071,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"1536x1536\": {\n          \"file\": \"string\",\n          \"width\": 5329,\n          \"height\": 1426,\n          \"filesize\": 8063,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"2048x2048\": {\n          \"file\": \"string\",\n          \"width\": 1092,\n          \"height\": 4016,\n          \"filesize\": 7232,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"full\": {\n          \"file\": \"string\",\n          \"width\": 4797,\n          \"height\": 8673,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        }\n      },\n      \"image_meta\": {\n        \"aperture\": \"string\",\n        \"credit\": \"string\",\n        \"camera\": \"string\",\n        \"caption\": \"string\",\n        \"created_timestamp\": \"string\",\n        \"copyright\": \"string\",\n        \"focal_length\": \"string\",\n        \"iso\": \"string\",\n        \"shutter_speed\": \"string\",\n        \"title\": \"string\",\n        \"orientation\": \"string\",\n        \"alt\": \"string\"\n      },\n      \"original_image\": \"string\"\n    },\n    \"post\": 4216,\n    \"source_url\": \"string\",\n    \"filename\": \"string\",\n    \"filesize\": 9799\n  },\n  {\n    \"id\": 2952,\n    \"date\": \"string\",\n    \"date_gmt\": \"string\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"string\",\n    \"modified_gmt\": \"string\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"string\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 3545,\n    \"featured_media\": 2124,\n    \"comment_status\": \"string\",\n    \"ping_status\": \"string\",\n    \"template\": \"string\",\n    \"meta\": {\n      \"site-sidebar-layout\": \"string\",\n      \"site-content-layout\": \"string\",\n      \"ast-site-content-layout\": \"string\",\n      \"site-content-style\": \"string\",\n      \"site-sidebar-style\": \"string\",\n      \"ast-global-header-display\": \"string\",\n      \"ast-banner-title-visibility\": \"string\",\n      \"ast-main-header-display\": \"string\",\n      \"ast-hfb-above-header-display\": \"string\",\n      \"ast-hfb-below-header-display\": \"string\",\n      \"ast-hfb-mobile-header-display\": \"string\",\n      \"site-post-title\": \"string\",\n      \"ast-breadcrumbs-content\": \"string\",\n      \"ast-featured-img\": \"string\",\n      \"footer-sml-layout\": \"string\",\n      \"ast-disable-related-posts\": \"string\",\n      \"theme-transparent-header-meta\": \"string\",\n      \"adv-header-id-meta\": \"string\",\n      \"stick-header-meta\": \"string\",\n      \"header-above-stick-meta\": \"string\",\n      \"header-main-stick-meta\": \"string\",\n      \"header-below-stick-meta\": \"string\",\n      \"astra-migrate-meta-layouts\": \"string\",\n      \"ast-page-background-enabled\": \"string\",\n      \"ast-page-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      },\n      \"ast-content-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      }\n    },\n    \"description\": {\n      \"rendered\": \"string\"\n    },\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"string\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"width\": 4894,\n      \"height\": 9059,\n      \"file\": \"string\",\n      \"filesize\": 1227,\n      \"sizes\": {\n        \"medium\": {\n          \"file\": \"string\",\n          \"width\": 507,\n          \"height\": 491,\n          \"filesize\": 4136,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"large\": {\n          \"file\": \"string\",\n          \"width\": 8454,\n          \"height\": 4796,\n          \"filesize\": 5306,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"thumbnail\": {\n          \"file\": \"string\",\n          \"width\": 4846,\n          \"height\": 4842,\n          \"filesize\": 4607,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"medium_large\": {\n          \"file\": \"string\",\n          \"width\": 8907,\n          \"height\": 1831,\n          \"filesize\": 6702,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"1536x1536\": {\n          \"file\": \"string\",\n          \"width\": 4600,\n          \"height\": 9093,\n          \"filesize\": 1721,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"2048x2048\": {\n          \"file\": \"string\",\n          \"width\": 3663,\n          \"height\": 5647,\n          \"filesize\": 9960,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        },\n        \"full\": {\n          \"file\": \"string\",\n          \"width\": 8802,\n          \"height\": 2892,\n          \"mime_type\": \"string\",\n          \"source_url\": \"string\"\n        }\n      },\n      \"image_meta\": {\n        \"aperture\": \"string\",\n        \"credit\": \"string\",\n        \"camera\": \"string\",\n        \"caption\": \"string\",\n        \"created_timestamp\": \"string\",\n        \"copyright\": \"string\",\n        \"focal_length\": \"string\",\n        \"iso\": \"string\",\n        \"shutter_speed\": \"string\",\n        \"title\": \"string\",\n        \"orientation\": \"string\",\n        \"alt\": \"string\"\n      },\n      \"original_image\": \"string\"\n    },\n    \"post\": 8555,\n    \"source_url\": \"string\",\n    \"filename\": \"string\",\n    \"filesize\": 7321\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e326230d-6861-4be9-91d4-74d1d39e8bc7",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16295834-0f84-49cd-b25b-c2b4d586a47a",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52e15641-eee0-41a7-95b0-4688d71760d3",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": ""
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parent_exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inherit"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "399b1213-2f46-4841-b517-f2ad3a167dd7",
+          "name": "Retrieve a single media object by id",
+          "request": {
+            "name": "Retrieve a single media object by id",
+            "description": {
+              "content": "Returns one media object from cutiss.swiss by its numeric WordPress id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the post."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7f859a6-988d-4518-9c28-b799d88e29e1",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2873,\n  \"date\": \"string\",\n  \"date_gmt\": \"string\",\n  \"guid\": {\n    \"rendered\": \"string\"\n  },\n  \"modified\": \"string\",\n  \"modified_gmt\": \"string\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"link\": \"string\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"author\": 681,\n  \"featured_media\": 8429,\n  \"comment_status\": \"string\",\n  \"ping_status\": \"string\",\n  \"template\": \"string\",\n  \"meta\": {\n    \"site-sidebar-layout\": \"string\",\n    \"site-content-layout\": \"string\",\n    \"ast-site-content-layout\": \"string\",\n    \"site-content-style\": \"string\",\n    \"site-sidebar-style\": \"string\",\n    \"ast-global-header-display\": \"string\",\n    \"ast-banner-title-visibility\": \"string\",\n    \"ast-main-header-display\": \"string\",\n    \"ast-hfb-above-header-display\": \"string\",\n    \"ast-hfb-below-header-display\": \"string\",\n    \"ast-hfb-mobile-header-display\": \"string\",\n    \"site-post-title\": \"string\",\n    \"ast-breadcrumbs-content\": \"string\",\n    \"ast-featured-img\": \"string\",\n    \"footer-sml-layout\": \"string\",\n    \"ast-disable-related-posts\": \"string\",\n    \"theme-transparent-header-meta\": \"string\",\n    \"adv-header-id-meta\": \"string\",\n    \"stick-header-meta\": \"string\",\n    \"header-above-stick-meta\": \"string\",\n    \"header-main-stick-meta\": \"string\",\n    \"header-below-stick-meta\": \"string\",\n    \"astra-migrate-meta-layouts\": \"string\",\n    \"ast-page-background-enabled\": \"string\",\n    \"ast-page-background-meta\": {\n      \"desktop\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"tablet\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"mobile\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      }\n    },\n    \"ast-content-background-meta\": {\n      \"desktop\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"tablet\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"mobile\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      }\n    }\n  },\n  \"description\": {\n    \"rendered\": \"string\"\n  },\n  \"caption\": {\n    \"rendered\": \"string\"\n  },\n  \"alt_text\": \"string\",\n  \"media_type\": \"string\",\n  \"mime_type\": \"string\",\n  \"media_details\": {\n    \"width\": 4210,\n    \"height\": 7590,\n    \"file\": \"string\",\n    \"filesize\": 2855,\n    \"sizes\": {\n      \"medium\": {\n        \"file\": \"string\",\n        \"width\": 2440,\n        \"height\": 7712,\n        \"filesize\": 7820,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"large\": {\n        \"file\": \"string\",\n        \"width\": 9018,\n        \"height\": 4425,\n        \"filesize\": 6269,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"thumbnail\": {\n        \"file\": \"string\",\n        \"width\": 9521,\n        \"height\": 4486,\n        \"filesize\": 5922,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"medium_large\": {\n        \"file\": \"string\",\n        \"width\": 5466,\n        \"height\": 1152,\n        \"filesize\": 3324,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"1536x1536\": {\n        \"file\": \"string\",\n        \"width\": 1394,\n        \"height\": 1436,\n        \"filesize\": 9792,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"2048x2048\": {\n        \"file\": \"string\",\n        \"width\": 2566,\n        \"height\": 5754,\n        \"filesize\": 2966,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      },\n      \"full\": {\n        \"file\": \"string\",\n        \"width\": 245,\n        \"height\": 4646,\n        \"mime_type\": \"string\",\n        \"source_url\": \"string\"\n      }\n    },\n    \"image_meta\": {\n      \"aperture\": \"string\",\n      \"credit\": \"string\",\n      \"camera\": \"string\",\n      \"caption\": \"string\",\n      \"created_timestamp\": \"string\",\n      \"copyright\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": \"string\",\n      \"shutter_speed\": \"string\",\n      \"title\": \"string\",\n      \"orientation\": \"string\",\n      \"alt\": \"string\"\n    },\n    \"original_image\": \"string\"\n  },\n  \"post\": 6289,\n  \"source_url\": \"string\",\n  \"filename\": \"string\",\n  \"filesize\": 9286\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1ee93b5-2959-46f2-ac36-9ab14aa222d6",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e08b4190-633a-44a1-86c6-d350436ebd05",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc67732e-abf6-4468-92c8-0d3f152e31e0",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 7945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cutiss.swiss/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dfb59ca1-2581-40f5-bf69-b596ee8db9a5",
+    "name": "CUTISS Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read the CUTISS media library — images, documents and press assets attached to pages, posts and newsroom items — as JSON with their rendered source URLs and size variants. 842 items published at probe time.\n\nThis is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer API; this content surface is the only machine-readable API on the company's public host. It is read-only without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`. Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample responses on 2026-08-11.\n\nContact Support:\n Name: CUTISS AG\n Email: info@cutiss.swiss",
+      "type": "text/plain"
+    }
+  }
+}

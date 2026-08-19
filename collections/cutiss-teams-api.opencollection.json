@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CUTISS Teams Taxonomy API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams Taxonomy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List teams taxonomy objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cutiss.swiss/wp-json/wp/v2/cutiss-teams",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Ensure result set excludes specific IDs."
+              },
+              {
+                "name": "hide_empty",
+                "value": "",
+                "type": "query",
+                "description": "Whether to hide terms not assigned to any posts."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to specific IDs."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order sort attribute ascending or descending."
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort collection by term attribute."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "parent",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to terms assigned to a specific parent."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              },
+              {
+                "name": "post",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to terms assigned to a specific post."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to terms with one or more specific slugs."
+              }
+            ]
+          },
+          "docs": "Returns a paginated collection of teams taxonomy objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single teams taxonomy object by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cutiss.swiss/wp-json/wp/v2/cutiss-teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the term."
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              }
+            ]
+          },
+          "docs": "Returns one teams taxonomy object from cutiss.swiss by its numeric WordPress id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,955 @@
+{
+  "item": [
+    {
+      "id": "63d3ff8d-7737-49b1-a490-4cc9e04fa92d",
+      "name": "Newsroom",
+      "description": {
+        "content": "Read CUTISS newsroom items (the `newsroom2021` custom post type) from cutiss.swiss as JSON. 28 items published at probe time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f793eea-530c-4915-83c6-a0ae70b48d3a",
+          "name": "List newsroom objects",
+          "request": {
+            "name": "List newsroom objects",
+            "description": {
+              "content": "Returns a paginated collection of newsroom objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "newsroom2021"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "Limit response to posts published after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "Limit response to posts published before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_after",
+                  "value": "<string>",
+                  "description": "Limit response to posts modified after a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_before",
+                  "value": "<string>",
+                  "description": "Limit response to posts modified before a given ISO8601 compliant date."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset the result set by a specific number of items."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Order sort attribute ascending or descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date",
+                  "description": "Sort collection by post attribute."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_columns",
+                  "value": "<string>",
+                  "description": "Array of column names to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_columns",
+                  "value": "<string>",
+                  "description": "Array of column names to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_semantics",
+                  "value": "<string>",
+                  "description": "How to interpret the search input."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to posts with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "publish",
+                  "description": "Limit result set to posts assigned one or more statuses."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc9ac38f-1180-475f-9855-6a163c697093",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "publish"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of objects in the collection.",
+                  "key": "X-WP-Total",
+                  "value": "3799"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the requested per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "3799"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2940,\n    \"date\": \"string\",\n    \"date_gmt\": \"string\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"string\",\n    \"modified_gmt\": \"string\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"string\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"featured_media\": 8912,\n    \"template\": \"string\",\n    \"meta\": {\n      \"site-sidebar-layout\": \"string\",\n      \"site-content-layout\": \"string\",\n      \"ast-site-content-layout\": \"string\",\n      \"site-content-style\": \"string\",\n      \"site-sidebar-style\": \"string\",\n      \"ast-global-header-display\": \"string\",\n      \"ast-banner-title-visibility\": \"string\",\n      \"ast-main-header-display\": \"string\",\n      \"ast-hfb-above-header-display\": \"string\",\n      \"ast-hfb-below-header-display\": \"string\",\n      \"ast-hfb-mobile-header-display\": \"string\",\n      \"site-post-title\": \"string\",\n      \"ast-breadcrumbs-content\": \"string\",\n      \"ast-featured-img\": \"string\",\n      \"footer-sml-layout\": \"string\",\n      \"ast-disable-related-posts\": \"string\",\n      \"theme-transparent-header-meta\": \"string\",\n      \"adv-header-id-meta\": \"string\",\n      \"stick-header-meta\": \"string\",\n      \"header-above-stick-meta\": \"string\",\n      \"header-main-stick-meta\": \"string\",\n      \"header-below-stick-meta\": \"string\",\n      \"astra-migrate-meta-layouts\": \"string\",\n      \"ast-page-background-enabled\": \"string\",\n      \"ast-page-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      },\n      \"ast-content-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      }\n    }\n  },\n  {\n    \"id\": 4386,\n    \"date\": \"string\",\n    \"date_gmt\": \"string\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"string\",\n    \"modified_gmt\": \"string\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"string\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"featured_media\": 3379,\n    \"template\": \"string\",\n    \"meta\": {\n      \"site-sidebar-layout\": \"string\",\n      \"site-content-layout\": \"string\",\n      \"ast-site-content-layout\": \"string\",\n      \"site-content-style\": \"string\",\n      \"site-sidebar-style\": \"string\",\n      \"ast-global-header-display\": \"string\",\n      \"ast-banner-title-visibility\": \"string\",\n      \"ast-main-header-display\": \"string\",\n      \"ast-hfb-above-header-display\": \"string\",\n      \"ast-hfb-below-header-display\": \"string\",\n      \"ast-hfb-mobile-header-display\": \"string\",\n      \"site-post-title\": \"string\",\n      \"ast-breadcrumbs-content\": \"string\",\n      \"ast-featured-img\": \"string\",\n      \"footer-sml-layout\": \"string\",\n      \"ast-disable-related-posts\": \"string\",\n      \"theme-transparent-header-meta\": \"string\",\n      \"adv-header-id-meta\": \"string\",\n      \"stick-header-meta\": \"string\",\n      \"header-above-stick-meta\": \"string\",\n      \"header-main-stick-meta\": \"string\",\n      \"header-below-stick-meta\": \"string\",\n      \"astra-migrate-meta-layouts\": \"string\",\n      \"ast-page-background-enabled\": \"string\",\n      \"ast-page-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      },\n      \"ast-content-background-meta\": {\n        \"desktop\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"tablet\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        },\n        \"mobile\": {\n          \"background-color\": \"string\",\n          \"background-image\": \"string\",\n          \"background-repeat\": \"string\",\n          \"background-position\": \"string\",\n          \"background-size\": \"string\",\n          \"background-attachment\": \"string\",\n          \"background-type\": \"string\",\n          \"background-media\": \"string\",\n          \"overlay-type\": \"string\",\n          \"overlay-color\": \"string\",\n          \"overlay-opacity\": \"string\",\n          \"overlay-gradient\": \"string\"\n        }\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3403c35e-18ae-419f-991d-4fb7a42c12ad",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "publish"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "449f1115-065d-4362-8f7b-271be00b5192",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "publish"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ddd9ba5-9ba0-4fc8-920a-4ef433e86336",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_columns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_semantics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "publish"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef879626-37e3-4fdc-a5af-3fef7509639c",
+          "name": "Retrieve a single newsroom object by id",
+          "request": {
+            "name": "Retrieve a single newsroom object by id",
+            "description": {
+              "content": "Returns one newsroom object from cutiss.swiss by its numeric WordPress id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "newsroom2021",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "The password for the post if it is password protected."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the post."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c38b177f-e875-413d-8e4f-4c3cd433d91d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7877,\n  \"date\": \"string\",\n  \"date_gmt\": \"string\",\n  \"guid\": {\n    \"rendered\": \"string\"\n  },\n  \"modified\": \"string\",\n  \"modified_gmt\": \"string\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"link\": \"string\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"featured_media\": 3038,\n  \"template\": \"string\",\n  \"meta\": {\n    \"site-sidebar-layout\": \"string\",\n    \"site-content-layout\": \"string\",\n    \"ast-site-content-layout\": \"string\",\n    \"site-content-style\": \"string\",\n    \"site-sidebar-style\": \"string\",\n    \"ast-global-header-display\": \"string\",\n    \"ast-banner-title-visibility\": \"string\",\n    \"ast-main-header-display\": \"string\",\n    \"ast-hfb-above-header-display\": \"string\",\n    \"ast-hfb-below-header-display\": \"string\",\n    \"ast-hfb-mobile-header-display\": \"string\",\n    \"site-post-title\": \"string\",\n    \"ast-breadcrumbs-content\": \"string\",\n    \"ast-featured-img\": \"string\",\n    \"footer-sml-layout\": \"string\",\n    \"ast-disable-related-posts\": \"string\",\n    \"theme-transparent-header-meta\": \"string\",\n    \"adv-header-id-meta\": \"string\",\n    \"stick-header-meta\": \"string\",\n    \"header-above-stick-meta\": \"string\",\n    \"header-main-stick-meta\": \"string\",\n    \"header-below-stick-meta\": \"string\",\n    \"astra-migrate-meta-layouts\": \"string\",\n    \"ast-page-background-enabled\": \"string\",\n    \"ast-page-background-meta\": {\n      \"desktop\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"tablet\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"mobile\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      }\n    },\n    \"ast-content-background-meta\": {\n      \"desktop\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"tablet\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      },\n      \"mobile\": {\n        \"background-color\": \"string\",\n        \"background-image\": \"string\",\n        \"background-repeat\": \"string\",\n        \"background-position\": \"string\",\n        \"background-size\": \"string\",\n        \"background-attachment\": \"string\",\n        \"background-type\": \"string\",\n        \"background-media\": \"string\",\n        \"overlay-type\": \"string\",\n        \"overlay-color\": \"string\",\n        \"overlay-opacity\": \"string\",\n        \"overlay-gradient\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe166b35-5d74-443b-a212-ea1bb3f2f13b",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "152cffba-4512-4a18-b2b9-ab93e5aa3a34",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10b3eb7a-5a2b-4142-ae77-3bf49fda3f94",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "newsroom2021",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the post."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5745\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cutiss.swiss/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7538cca4-94d9-4e2b-aa18-4aaac2cdc3a6",
+    "name": "CUTISS Newsroom API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read CUTISS newsroom items (the `newsroom2021` custom post type) from cutiss.swiss as JSON. 28 items published at probe time.\n\nThis is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer API; this content surface is the only machine-readable API on the company's public host. It is read-only without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`. Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample responses on 2026-08-11.\n\nContact Support:\n Name: CUTISS AG\n Email: info@cutiss.swiss",
+      "type": "text/plain"
+    }
+  }
+}

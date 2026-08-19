@@ -1,0 +1,801 @@
+{
+  "item": [
+    {
+      "id": "2d1427dd-83d9-4be4-bc07-a0cdbddc100d",
+      "name": "Teams Taxonomy",
+      "description": {
+        "content": "Read the `cutiss-teams` taxonomy — the organizational groupings team member profiles are filed under. 18 terms published at probe time.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3032b91-7fd1-40d9-a621-51c8cb255d96",
+          "name": "List teams taxonomy objects",
+          "request": {
+            "name": "List teams taxonomy objects",
+            "description": {
+              "content": "Returns a paginated collection of teams taxonomy objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cutiss-teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<integer>",
+                  "description": "Ensure result set excludes specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_empty",
+                  "value": "false",
+                  "description": "Whether to hide terms not assigned to any posts."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<integer>",
+                  "description": "Limit result set to specific IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "Order sort attribute ascending or descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name",
+                  "description": "Sort collection by term attribute."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "<integer>",
+                  "description": "Limit result set to terms assigned to a specific parent."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "post",
+                  "value": "",
+                  "description": "Limit result set to terms assigned to a specific post."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to terms with one or more specific slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit result set to terms with one or more specific slugs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9727ff68-b5c2-4cd3-9ab1-d9daf61655c4",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": ""
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of objects in the collection.",
+                  "key": "X-WP-Total",
+                  "value": "6077"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the requested per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "6077"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8303,\n    \"count\": 9328,\n    \"description\": \"string\",\n    \"link\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 6273\n  },\n  {\n    \"id\": 2545,\n    \"count\": 738,\n    \"description\": \"string\",\n    \"link\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 819\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e74dea9-3787-486b-8f04-f5e1d83b0510",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": ""
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb112e0e-a139-4ed3-95cc-64df3d572d11",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": ""
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "399a9f09-dfb6-489f-9bb4-7dd1ff1905e3",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": ""
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61241302-a35b-45e2-9048-3bd5aa12b5d0",
+          "name": "Retrieve a single teams taxonomy object by id",
+          "request": {
+            "name": "Retrieve a single teams taxonomy object by id",
+            "description": {
+              "content": "Returns one teams taxonomy object from cutiss.swiss by its numeric WordPress id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cutiss-teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the term."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd730cef-5840-4aa3-9d2c-0ffacfe171fe",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the term."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8692,\n  \"count\": 4762,\n  \"description\": \"string\",\n  \"link\": \"string\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"string\",\n  \"parent\": 8364\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c71f7ac6-7a30-49dd-8d55-f30073666a10",
+              "name": "Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the term."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9319c8a6-d532-48f9-a0d4-523be05516c4",
+              "name": "Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the term."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebf96829-25e4-4edc-bb21-6c4933580b1f",
+              "name": "No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cutiss-teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the term."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 6596\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cutiss.swiss/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "864f60b5-366c-41c1-9ccf-cf3f3644b49b",
+    "name": "CUTISS Teams Taxonomy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read the `cutiss-teams` taxonomy — the organizational groupings team member profiles are filed under. 18 terms published at probe time.\n\nThis is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer API; this content surface is the only machine-readable API on the company's public host. It is read-only without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`. Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample responses on 2026-08-11.\n\nContact Support:\n Name: CUTISS AG\n Email: info@cutiss.swiss",
+      "type": "text/plain"
+    }
+  }
+}

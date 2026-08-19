@@ -31,3 +31,8 @@ mcp_probes:
 - url: https://cutiss.swiss/wp-json/mcp/mcp-adapter-default-server
   status: 404
   code: rest_no_route
+deployment:
+  mode: none
+  verified: derived
+  checked: '2026-08-12'
+  source: catalog MCP census
