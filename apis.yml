@@ -141,6 +141,10 @@ apis:
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
   - Media
+  - Image
+  - Content
+  tags_raw:
+  - Media
   - Images
   - Content
   properties:
