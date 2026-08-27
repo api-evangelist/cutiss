@@ -39,8 +39,9 @@ tags:
 apis:
 - aid: cutiss:cutiss-newsroom-api
   name: CUTISS Newsroom API
-  description: The Newsroom API from CUTISS — the `newsroom2021` custom post type served as JSON by
-    the WordPress REST API on cutiss.swiss. 28 newsroom items were readable anonymously at probe time.
+  description: >-
+    The Newsroom API from CUTISS — the `newsroom2021` custom post type served as JSON by the WordPress
+    REST API on cutiss.swiss. 28 newsroom items were readable anonymously at probe time.
   humanURL: https://cutiss.swiss/newsroom/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -57,8 +58,9 @@ apis:
     url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-posts-api
   name: CUTISS Posts API
-  description: The Posts API from CUTISS — the company blog served as JSON with date, slug, category
-    and full-text filtering. 278 posts were readable anonymously at probe time.
+  description: >-
+    The Posts API from CUTISS — the company blog served as JSON with date, slug, category and full-text
+    filtering. 278 posts were readable anonymously at probe time.
   humanURL: https://cutiss.swiss/blog/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -76,9 +78,10 @@ apis:
     url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-pages-api
   name: CUTISS Pages API
-  description: The Pages API from CUTISS — corporate website pages including About us, Technology,
-    Clinical Development, Investors, Media, Career and Contact, in English and German, served as JSON.
-    34 pages were readable anonymously at probe time.
+  description: >-
+    The Pages API from CUTISS — corporate website pages including About us, Technology, Clinical Development,
+    Investors, Media, Career and Contact, in English and German, served as JSON. 34 pages were readable
+    anonymously at probe time.
   humanURL: https://cutiss.swiss/about-us/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -95,9 +98,9 @@ apis:
     url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-team-api
   name: CUTISS Team API
-  description: The Team API from CUTISS — the `team_member` custom post type carrying staff and
-    leadership profiles and their `cutiss-teams` taxonomy assignment. 128 profiles were readable
-    anonymously at probe time.
+  description: >-
+    The Team API from CUTISS — the `team_member` custom post type carrying staff and leadership profiles
+    and their `cutiss-teams` taxonomy assignment. 128 profiles were readable anonymously at probe time.
   humanURL: https://cutiss.swiss/about-us/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -113,30 +116,12 @@ apis:
     url: errors/cutiss-problem-types.yml
   - type: Examples
     url: examples/cutiss-examples.yml
-- aid: cutiss:cutiss-teams-api
-  name: CUTISS Teams Taxonomy API
-  description: The Teams Taxonomy API from CUTISS — the `cutiss-teams` taxonomy that groups team
-    member profiles into organizational units. 18 terms were readable anonymously at probe time.
-  humanURL: https://cutiss.swiss/about-us/
-  baseURL: https://cutiss.swiss/wp-json/wp/v2
-  tags:
-  - Taxonomy
-  - Team
-  - Content
-  properties:
-  - type: OpenAPI
-    url: openapi/cutiss-teams-api-openapi.yml
-  - type: DataModel
-    url: data-model/cutiss-data-model.yml
-  - type: ErrorCatalog
-    url: errors/cutiss-problem-types.yml
-  - type: Examples
-    url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-media-api
   name: CUTISS Media API
-  description: The Media API from CUTISS — the media library of images, press assets and documents
-    attached to pages, posts and newsroom items, with rendered source URLs and size variants. 842
-    items were readable anonymously at probe time.
+  description: >-
+    The Media API from CUTISS — the media library of images, press assets and documents attached to pages,
+    posts and newsroom items, with rendered source URLs and size variants. 842 items were readable anonymously
+    at probe time.
   humanURL: https://cutiss.swiss/media/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -158,8 +143,9 @@ apis:
     url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-categories-api
   name: CUTISS Categories API
-  description: The Categories API from CUTISS — the content categories posts are filed under. 13
-    categories were readable anonymously at probe time.
+  description: >-
+    The Categories API from CUTISS — the content categories posts are filed under. 13 categories were
+    readable anonymously at probe time.
   humanURL: https://cutiss.swiss/blog/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -177,8 +163,9 @@ apis:
     url: examples/cutiss-examples.yml
 - aid: cutiss:cutiss-search-api
   name: CUTISS Search API
-  description: The Search API from CUTISS — full-text search across every publicly readable object on
-    cutiss.swiss, returning id, title, url, type and subtype. 514 searchable objects at probe time.
+  description: >-
+    The Search API from CUTISS — full-text search across every publicly readable object on cutiss.swiss,
+    returning id, title, url, type and subtype. 514 searchable objects at probe time.
   humanURL: https://cutiss.swiss/
   baseURL: https://cutiss.swiss/wp-json/wp/v2
   tags:
@@ -187,6 +174,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cutiss-search-api-openapi.yml
+  - type: DataModel
+    url: data-model/cutiss-data-model.yml
+  - type: ErrorCatalog
+    url: errors/cutiss-problem-types.yml
+  - type: Examples
+    url: examples/cutiss-examples.yml
+- aid: cutiss:cutiss-teams-taxonomy-api
+  name: CUTISS Teams Taxonomy API
+  description: >-
+    Read the `cutiss-teams` taxonomy — the organizational groupings team member profiles are filed under.
+    18 terms published at probe time.
+  humanURL: https://cutiss.swiss/newsroom/
+  baseURL: https://cutiss.swiss/wp-json/wp/v2
+  tags:
+  - Teams Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/cutiss-teams-taxonomy-api-openapi.yml
   - type: DataModel
     url: data-model/cutiss-data-model.yml
   - type: ErrorCatalog
