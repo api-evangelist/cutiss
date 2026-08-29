@@ -1,0 +1,24 @@
+slug: cutiss
+provider: CUTISS
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Pharmaceuticals & Life Sciences
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Newsroom
+  spec_file: cutiss-newsroom-api-openapi.yml
+  capability_id: BC-850.40
+  capability_id_l1: BC-850
+  capability_name: Media Relations Management
+  confidence: 0.7
+  evidence: Read CUTISS newsroom items (the `newsroom2021` custom post type) from cutiss.swiss as JSON
+  reason: Newsroom items are corporate press/news releases, which is the publication surface of media
+    relations / external corporate communications.

@@ -221,6 +221,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/cutiss-capability-edges.yml
+  name: CUTISS Business Capability Map
 - type: Website
   url: https://cutiss.swiss/
 - type: About
