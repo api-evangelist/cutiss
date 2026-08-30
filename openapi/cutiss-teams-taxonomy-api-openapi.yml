@@ -1,0 +1,257 @@
+openapi: 3.2.0
+info:
+  title: CUTISS Teams Taxonomy API
+  description: 'Read the `cutiss-teams` taxonomy — the organizational groupings team member profiles are filed under. 18 terms published at probe time.
+
+
+    This is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer API; this content surface is the only machine-readable API on the company''s public host. It is read-only without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`. Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample responses on 2026-08-11.'
+  version: 1.0.0
+  contact:
+    name: CUTISS AG
+    email: info@cutiss.swiss
+    url: https://cutiss.swiss/contact/
+  license:
+    name: Proprietary — content © CUTISS AG
+    url: https://cutiss.swiss/impressum-en/
+servers:
+- url: https://cutiss.swiss/wp-json/wp/v2
+  description: CUTISS WordPress REST API (wp/v2 namespace)
+tags:
+- name: Teams Taxonomy
+  description: Read the `cutiss-teams` taxonomy — the organizational groupings team member profiles are filed under. 18 terms published at probe time.
+paths:
+  /cutiss-teams:
+    get:
+      operationId: listTeams
+      summary: List teams taxonomy objects
+      description: Returns a paginated collection of teams taxonomy objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers.
+      tags:
+      - Teams Taxonomy
+      parameters:
+      - name: context
+        in: query
+        description: Scope under which the request is made; determines fields present in response.
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+      - name: exclude
+        in: query
+        description: Ensure result set excludes specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: hide_empty
+        in: query
+        description: Whether to hide terms not assigned to any posts.
+        schema:
+          type: boolean
+          default: false
+      - name: include
+        in: query
+        description: Limit result set to specific IDs.
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: order
+        in: query
+        description: Order sort attribute ascending or descending.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+      - name: orderby
+        in: query
+        description: Sort collection by term attribute.
+        schema:
+          type: string
+          enum:
+          - id
+          - include
+          - name
+          - slug
+          - include_slugs
+          - term_group
+          - description
+          - count
+          default: name
+      - name: page
+        in: query
+        description: Current page of the collection.
+        schema:
+          type: integer
+          default: 1
+      - name: parent
+        in: query
+        description: Limit result set to terms assigned to a specific parent.
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: Maximum number of items to be returned in result set.
+        schema:
+          type: integer
+          default: 10
+      - name: post
+        in: query
+        description: Limit result set to terms assigned to a specific post.
+        schema:
+          type: integer
+          default: null
+      - name: search
+        in: query
+        description: Limit results to those matching a string.
+        schema:
+          type: string
+      - name: slug
+        in: query
+        description: Limit result set to terms with one or more specific slugs.
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          headers:
+            X-WP-Total:
+              description: Total number of objects in the collection.
+              schema:
+                type: integer
+            X-WP-TotalPages:
+              description: Total number of pages available at the requested per_page size.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamTerm'
+        '400':
+          description: Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cutiss-teams/{id}:
+    get:
+      operationId: getTeamsItem
+      summary: Retrieve a single teams taxonomy object by id
+      description: Returns one teams taxonomy object from cutiss.swiss by its numeric WordPress id.
+      tags:
+      - Teams Taxonomy
+      parameters:
+      - name: id
+        in: path
+        description: Unique identifier for the term.
+        schema:
+          type: integer
+        required: true
+      - name: context
+        in: query
+        description: Scope under which the request is made; determines fields present in response.
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamTerm'
+        '400':
+          description: Invalid parameter. Returns a WordPress REST error object with code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: No route or object matched. Returns `rest_no_route` or `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      description: The WordPress REST API error envelope returned on every 4xx/5xx response.
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code, e.g. rest_forbidden.
+        message:
+          type: string
+          description: Human-readable message. Localized — cutiss.swiss returns German text.
+        data:
+          type: object
+          description: Error detail.
+          properties:
+            status:
+              type: integer
+              description: HTTP status code.
+      required:
+      - code
+      - message
+    TeamTerm:
+      type: object
+      properties:
+        id:
+          type: integer
+        count:
+          type: integer
+        description:
+          type: string
+        link:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        taxonomy:
+          type: string
+        parent:
+          type: integer
+        meta:
+          type: array
+          items: {}
+        acf:
+          type: array
+          items: {}
+x-evidence:
+  fetched: '2026-08-11'
+  route_index: https://cutiss.swiss/wp-json/
+  sample_request: https://cutiss.swiss/wp-json/wp/v2/cutiss-teams?per_page=1
+  verified_total: 18
+  note: Parameters derived verbatim from the live route index args; schema properties derived from a live sample response. No properties were invented.
