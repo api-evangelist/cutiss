@@ -31,6 +31,20 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-03'
+  method: derived
 image: https://cutiss.swiss/wp-content/uploads/2019/08/Cutiss-Logo.png
 specificationVersion: '0.23'
 created: '2026-08-11'
