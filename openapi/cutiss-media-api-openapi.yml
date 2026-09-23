@@ -1,16 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: CUTISS Media API
-  description: 'Read the CUTISS media library — images, documents and press assets attached to pages,
-    posts and newsroom items — as JSON with their rendered source URLs and size variants. 842 items published
-    at probe time.
-
-
-    This is the WordPress REST API that serves cutiss.swiss. CUTISS publishes no product or developer
-    API; this content surface is the only machine-readable API on the company''s public host. It is read-only
-    without credentials — every write method and every administrative collection returns HTTP 401 `rest_forbidden`.
-    Derived by API Evangelist from the live route index at https://cutiss.swiss/wp-json/ and live sample
-    responses on 2026-08-11.'
+  description: Read the CUTISS media library — images, documents and press assets attached to pages, posts and newsroom items — as JSON with their rendered source URLs and size variants.
   version: 1.0.0
   contact:
     name: CUTISS AG
@@ -24,16 +15,13 @@ servers:
   description: CUTISS WordPress REST API (wp/v2 namespace)
 tags:
 - name: Media
-  description: Read the CUTISS media library — images, documents and press assets attached to pages, posts
-    and newsroom items — as JSON with their rendered source URLs and size variants. 842 items published
-    at probe time.
+  description: Read the CUTISS media library — images, documents and press assets attached to pages, posts and newsroom items — as JSON with their rendered source URLs and size variants. 842 items published at probe time.
 paths:
   /media:
     get:
       operationId: listMedia
       summary: List media objects
-      description: Returns a paginated collection of media objects from cutiss.swiss. Pagination totals
-        are returned in the X-WP-Total and X-WP-TotalPages response headers.
+      description: Returns a paginated collection of media objects from cutiss.swiss. Pagination totals are returned in the X-WP-Total and X-WP-TotalPages response headers.
       tags:
       - Media
       parameters:
@@ -241,8 +229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
-          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires
-            authentication.
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.
           content:
             application/json:
               schema:
@@ -291,8 +278,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
-          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires
-            authentication.
+          description: Not authorized. Returns `rest_forbidden` — the requested context or resource requires authentication.
           content:
             application/json:
               schema:
@@ -769,5 +755,4 @@ x-evidence:
   route_index: https://cutiss.swiss/wp-json/
   sample_request: https://cutiss.swiss/wp-json/wp/v2/media?per_page=1
   verified_total: 842
-  note: Parameters derived verbatim from the live route index args; schema properties derived from a live
-    sample response. No properties were invented.
+  note: Parameters derived verbatim from the live route index args; schema properties derived from a live sample response. No properties were invented.

@@ -1,0 +1,42 @@
+{
+  "provider": "cutiss",
+  "sources": [
+    "_original/cutiss-teams-api-openapi.yml",
+    "cutiss-categories-api-openapi.yml",
+    "cutiss-media-api-openapi.yml",
+    "cutiss-newsroom-api-openapi.yml",
+    "cutiss-pages-api-openapi.yml",
+    "cutiss-posts-api-openapi.yml",
+    "cutiss-search-api-openapi.yml",
+    "cutiss-team-api-openapi.yml"
+  ],
+  "outputs": [
+    "cutiss-teams-taxonomy-api-openapi.yml",
+    "cutiss-categories-api-openapi.yml",
+    "cutiss-media-api-openapi.yml",
+    "cutiss-newsroom-api-openapi.yml",
+    "cutiss-pages-api-openapi.yml",
+    "cutiss-posts-api-openapi.yml",
+    "cutiss-search-api-openapi.yml",
+    "cutiss-team-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [
+    "cutiss-categories-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /categories get, /categories/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-media-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /media get, /media/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-newsroom-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /newsroom2021 get, /newsroom2021/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-pages-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /pages get, /pages/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-posts-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /posts get, /posts/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-search-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /search get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "cutiss-team-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /team_member get, /team_member/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cutiss-teams-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cutiss-teams-taxonomy-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
