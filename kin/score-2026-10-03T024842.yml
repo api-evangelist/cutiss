@@ -1,33 +1,31 @@
-# Kin Score artifact — cutiss — 2026-08-25T154045
+# Kin Score artifact — cutiss — 2026-10-03T024842
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: cutiss
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T154045
-  composite: 32.8
-  band: thin
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T024842
+  composite: 17.7
+  band: emerging
   facets:
-    discoverability: 74.1
-    contract_quality: 52.4
-    governance: 16.7
+    discoverability: 58.0
+    contract_quality: 0.0
+    contract_governance: 4.5
     operational_transparency: 0.0
-    developer_ergonomics: 20.8
-    commercial_clarity: 21.1
-    contract_governance: 16.7
+    developer_ergonomics: 30.4
     access_clarity: 21.1
   agent_readiness:
-    score: 30.6
-    band: agent-ready
+    score: 10.6
+    band: agent-aware
     dimensions:
-      spec_presence: true
+      spec_presence: false
       agentic_access: derived
-      reversibility_documented: na
+      reversibility_documented: false
       mcp_server: false
       auth_clarity: bearer
-      idempotency: na
-      error_semantics: verified
+      idempotency: false
+      error_semantics: documented
       openapi_examples: false
       rate_limit_signal: documented
       event_surface_described: false
@@ -35,7 +33,7 @@ kin_score:
       well_known_catalog: false
       consent_identity: false
       agent_card: false
-      dry_run_mode: na
+      dry_run_mode: false
       delegated_identity: false
       protected_resource_metadata: false
       dynamic_client_registration: false
@@ -44,15 +42,10 @@ kin_score:
     applies: true
     regime: Health
     regime_id: health
-    score: 31.3
+    score: 19.5
     matched_via: tags
   provenance:
     mcp: derived
     skills: derived
     agentic_access: derived
     conformance: derived
-    contracts:
-      total: 8
-      derived: 0
-      coverage: 0.0
-      callable: 100.0
